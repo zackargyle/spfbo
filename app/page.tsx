@@ -7,7 +7,6 @@ import createStore, { type Store, Book } from "./store.tsx";
 type Filter = 'all' | 'audio' | 'ku';
 
 function bookFilter(book: Book, blog: string, filter: Filter): boolean {
-
   if (book.blog !== blog) {
     return false;
   }
@@ -68,7 +67,7 @@ export default function Home() {
                           {book.isFinalist ? (
                             <div className="absolute w-full h-full top-0 left-0 rounded border-solid border-4 border-green-400"></div>
                           ) : null}
-                          <img loading={index < 10 ? 'eager' : 'lazy'} alt={book.title} src={book.cover} className="rounded min-w-full h-book" />
+                          <Image width={120} height={180} alt={book.title} src={book.cover} className="rounded h-book" />
                         </a>
 
                         {book.isFinalist ? (

@@ -15968,7 +15968,7 @@
       "isKU": true,
       "audiobook": true,
       "blog": "Booknest",
-      "isFinalist": false,
+      "isFinalist": true,
       "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
