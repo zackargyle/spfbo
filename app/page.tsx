@@ -68,6 +68,9 @@ export default function Home() {
                             <div className="absolute w-full h-full top-0 left-0 rounded border-solid border-4 border-green-400"></div>
                           ) : null}
                           <Image width={120} height={180} alt={book.title} src={book.cover} className="rounded h-book" />
+                          {book.isCut ? (
+                            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-75 rounded"></div>
+                          ) : null}
                         </a>
 
                         {book.isFinalist ? (
@@ -76,10 +79,6 @@ export default function Home() {
                         
                         {book.isSemiFinalist && !book.isFinalist ? (
                           <div >Semi-finalist</div>
-                        ) : null}
-
-                        {book.isCut ? (
-                          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-75 rounded"></div>
                         ) : null}
                       </div>
                     ))}
