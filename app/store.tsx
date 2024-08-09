@@ -22,7 +22,7 @@ export type Store = {
   [batch: string]: {
       blogs: Array<string>,
       books: BookList,
-      finalistCount: number,
+      finalists: BookList,
   }
 };
 
@@ -31,13 +31,13 @@ function createStore(books: BookList): Store {
 
     books.forEach((book: Book) => {
       const batchKey = 'spfbo-' + book.batch;
-      store[batchKey] = store[batchKey] || { blogs: [], books: [], finalistCount: 0 };
+      store[batchKey] = store[batchKey] || { blogs: [], books: [], finalists: [] };
       let batch = store[batchKey];
 
       batch.books.push(book);
 
       if (book.isFinalist) {
-        batch.finalistCount++;
+        batch.finalists.push(book);
       }
 
       if (!batch.blogs.includes(book.blog)) {

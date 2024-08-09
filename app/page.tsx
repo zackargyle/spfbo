@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { list } from "@vercel/blob";
 import createStore, { type Store, Book } from "./store.tsx";
+import BookView from "./BookView.tsx";
 
 type View = 'finalists' | 'spfbo-1' | 'spfbo-2' | 'spfbo-3' | 'spfbo-4' | 'spfbo-5' | 'spfbo-6' | 'spfbo-7' | 'spfbo-8' | 'spfbo-9' | 'spfbo-10';
 type Filter = 'all' | 'audio' | 'ku';
@@ -40,7 +41,7 @@ export default function Home() {
             <div className="w-full text-center mt-4">
               <div className="mb-3">What books would you like to see?</div>
               <select value={selectedView} onChange={e => setSelectedView(e.target.value as View)} className="py-2 px-3 text-black text-sm rounded">
-                {/* <option value="finalists">Finalists</option> */}
+                <option value="finalists">All Finalists</option>
                 <option value="spfbo-10">SPFBO 10</option>
                 <option value="spfbo-9">SPFBO 9</option>
                 <option value="spfbo-8">SPFBO 8</option>
@@ -68,38 +69,54 @@ export default function Home() {
               </div>
             </div>
             <div role="list" className="mt-12 overflow-auto" style={{width: '90vw', marginLeft: '10vw'}}>
-              {store[selectedView].blogs.map(blog => (
-                <div role="listitem" key={blog}>
-                  <h2 className="ml-8 mb-4 text-4xl">{blog}</h2>
-                  <div role="list" className="flex flex-row items-start overflow-auto">
-                    {store[selectedView].books.filter(book=> bookFilter(book, blog, selectedFilter)).map((book: Book, index: number) => (
-                      <div role="listitem" key={book.title} className="relative mr-5 text-center h-row" >
-                        <a href={book.amazon} target="_blank" className="inline-block relative w-book">
-                          {book.isFinalist ? (
-                            <div className="absolute w-full h-full top-0 left-0 rounded border-solid border-4 border-green-400"></div>
-                          ) : null}
-                          <img width={120} height={180} alt={book.title} src={book.cover} className="rounded h-book" />
-                          {book.isCut ? (
-                            <div className="absolute top-0 left-0 w-full h-full bg-black opacity-75 rounded"></div>
-                          ) : null}
-                        </a>
-
-                        {book.isFinalist ? (
-                          <div className="text-sm">Finalist</div>
-                        ) : null}
-
-                        {book.isSemiFinalist && !book.isFinalist ? (
-                          <div className="text-sm">Semi-finalist</div>
-                        ) : null}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
+              {renderView(selectedView, store, selectedFilter)}
             </div>
           </>
         ) : null}
       </div>
     </main>
   );
+}
+
+function renderView(selectedView: View, store: Store, selectedFilter: Filter) {
+  if (selectedView === 'finalists') {
+    return (
+      <div>
+        {Object.keys(store).filter(batch => store[batch].finalists.length).map(batch => (
+          <>
+            <div className="ml-8 mb-4 text-4xl">{batch.toUpperCase()}</div>
+            <div role="list" className="flex flex-row items-start overflow-auto">
+              {store[batch].finalists
+                .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status="none" />)}
+            </div>
+          </>
+        ))}
+      </div>
+    );
+  } else {
+    return store[selectedView].blogs.map(blog => (
+      <div role="listitem" key={blog}>
+        <h2 className="ml-8 mb-4 text-4xl">{blog}</h2>
+        <div role="list" className="flex flex-row items-start overflow-auto">
+          {store[selectedView].books
+            .filter(book=> bookFilter(book, blog, selectedFilter))
+            .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status={getStatus(book)} />)
+
+          }
+        </div>
+      </div>
+    ));
+  }
+}
+
+function getStatus(book: Book) {
+  if (book.isFinalist) {
+    return 'finalist';
+  } else if (book.isSemiFinalist) {
+    return 'semi-finalist';
+  } else if (book.isCut) {
+    return 'cut';
+  } else {
+    return 'none';
+  }
 }
