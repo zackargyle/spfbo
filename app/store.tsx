@@ -28,22 +28,23 @@ export type Store = {
 
 function createStore(books: BookList): Store {
     const store: Store = {};
-  
+
     books.forEach((book: Book) => {
-      store[book.batch] = store[book.batch] || { blogs: [], books: [], finalistCount: 0 };
-      let batch = store[book.batch];
-  
+      const batchKey = 'spfbo-' + book.batch;
+      store[batchKey] = store[batchKey] || { blogs: [], books: [], finalistCount: 0 };
+      let batch = store[batchKey];
+
       batch.books.push(book);
 
       if (book.isFinalist) {
         batch.finalistCount++;
       }
-  
+
       if (!batch.blogs.includes(book.blog)) {
         batch.blogs.push(book.blog);
       }
     });
-  
+
     // sort books and blogs for consistency
     Object.keys(store).forEach(batch => {
       store[batch].blogs.sort();
@@ -59,7 +60,7 @@ function createStore(books: BookList): Store {
         return 0;
       });
     });
-  
+
     return store;
   }
 

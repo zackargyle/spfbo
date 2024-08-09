@@ -15,7 +15,7 @@ const config: Config = {
       },
       height: {
         book: '180px',
-        row: '230px',
+        row: '220px',
         circle: '20px',
       },
       width: {
