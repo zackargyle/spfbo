@@ -1,7 +1,8 @@
 'use client';
 import { useEffect, useState } from "react";
 import { list } from "@vercel/blob";
-import createStore, { type Store, Book } from "./store.tsx";
+import createStore, { type Store, Book, FinalistsDB } from "./store.tsx";
+import finalistsDB from './finalists.json';
 import BookView from "./BookView.tsx";
 
 type View = 'finalists' | 'spfbo-1' | 'spfbo-2' | 'spfbo-3' | 'spfbo-4' | 'spfbo-5' | 'spfbo-6' | 'spfbo-7' | 'spfbo-8' | 'spfbo-9' | 'spfbo-10';
@@ -87,7 +88,7 @@ function renderView(selectedView: View, store: Store, selectedFilter: Filter) {
             <div className="ml-8 mb-4 text-4xl">{batch.toUpperCase()}</div>
             <div role="list" className="flex flex-row items-start overflow-auto">
               {store[batch].finalists
-                .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status="none" />)}
+                .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status={isWinner(batch, book) ? 'finalist' : 'none'} />)}
             </div>
           </>
         ))}
@@ -119,4 +120,8 @@ function getStatus(book: Book) {
   } else {
     return 'none';
   }
+}
+
+function isWinner(batch: string, book: Book) {
+  return (finalistsDB as FinalistsDB)[batch][book.title] === 1;
 }

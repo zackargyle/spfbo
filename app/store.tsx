@@ -1,5 +1,13 @@
 'use client';
-import data from './db.json';
+import { title } from 'process';
+import bookDB from './db.json';
+import finalistsDB from './finalists.json';
+
+export type FinalistsDB = {
+  [batch: string]: {
+    [title: string]: number,
+  }
+}
 
 export type Book = {
     batch: number,
@@ -23,7 +31,7 @@ export type Store = {
       blogs: Array<string>,
       books: BookList,
       finalists: BookList,
-  }
+  },
 };
 
 function createStore(books: BookList): Store {
@@ -48,16 +56,24 @@ function createStore(books: BookList): Store {
     // sort books and blogs for consistency
     Object.keys(store).forEach(batch => {
       store[batch].blogs.sort();
-      store[batch].books.sort((a, b) => {
-        if (a.isFinalist) return -1;
-        if (b.isFinalist) return 1;
-        if (a.isSemiFinalist) return -1;
-        if (b.isSemiFinalist) return 1;
-        if (a.isCoverFinalist) return -1;
-        if (b.isCoverFinalist) return 1;
-        if (a.isCut) return 1;
-        if (b.isCut) return -1;
+
+      // Sort for default view
+      store[batch].books.sort((book1, book2) => {
+        if (book1.isFinalist) return -1;
+        if (book2.isFinalist) return 1;
+        if (book1.isSemiFinalist) return -1;
+        if (book2.isSemiFinalist) return 1;
+        if (book1.isCoverFinalist) return -1;
+        if (book2.isCoverFinalist) return 1;
+        if (book1.isCut) return 1;
+        if (book2.isCut) return -1;
         return 0;
+      });
+
+      store[batch].finalists.sort((book1, book2) => {
+        const book2Rank = (finalistsDB as FinalistsDB)[batch][book2.title];
+        const book1Rank = (finalistsDB as FinalistsDB)[batch][book1.title];
+        return book1Rank < book2Rank ? -1 : 1;
       });
     });
 
@@ -65,4 +81,4 @@ function createStore(books: BookList): Store {
   }
 
 
-export default () => createStore(data);
+export default () => createStore(bookDB);
