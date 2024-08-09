@@ -290,7 +290,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -374,7 +374,7 @@
       "blog": "Queen's Book Asylum",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1466,7 +1466,7 @@
       "blog": "Queen's Book Asylum",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1620,7 +1620,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1774,7 +1774,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1871,7 +1871,7 @@
       "audiobook": false,
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
@@ -2250,7 +2250,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2362,7 +2362,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3425,7 +3425,7 @@
       "audiobook": false,
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
@@ -3509,7 +3509,7 @@
       "audiobook": false,
       "blog": "Queen's Book Asylum",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
@@ -3650,7 +3650,7 @@
       "blog": "Before We Go Blog",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3860,7 +3860,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3888,7 +3888,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3958,7 +3958,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -4028,7 +4028,7 @@
       "blog": "Before We Go Blog",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -4196,7 +4196,7 @@
       "blog": "Before We Go Blog",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
