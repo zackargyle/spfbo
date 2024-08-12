@@ -88,7 +88,7 @@ function renderView(selectedView: View, store: Store, selectedFilter: Filter) {
             <div className="ml-8 mb-4 text-4xl">{batch.toUpperCase()}</div>
             <div role="list" className="flex flex-row items-start overflow-auto">
               {store[batch].finalists
-                .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status={isWinner(batch, book) ? 'finalist' : 'none'} />)}
+                .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status={isWinner(batch, book) ? 'winner' : 'none'} />)}
             </div>
           </>
         ))}
@@ -102,7 +102,6 @@ function renderView(selectedView: View, store: Store, selectedFilter: Filter) {
           {store[selectedView].books
             .filter(book=> bookFilter(book, blog, selectedFilter))
             .map((book: Book) => <BookView key={book.title} link={book.amazon} cover={book.cover} title={book.title} status={getStatus(book)} />)
-
           }
         </div>
       </div>
@@ -112,7 +111,11 @@ function renderView(selectedView: View, store: Store, selectedFilter: Filter) {
 
 function getStatus(book: Book) {
   if (book.isFinalist) {
-    return 'finalist';
+    if (isWinner('spfbo-' + book.batch, book)) {
+      return 'winner';
+    } else {
+      return 'finalist';
+    }
   } else if (book.isSemiFinalist) {
     return 'semi-finalist';
   } else if (book.isCut) {
