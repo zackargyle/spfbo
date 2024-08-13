@@ -612,7 +612,7 @@
       "blog": "Before We Go Blog",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -920,7 +920,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1326,7 +1326,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1676,7 +1676,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2908,7 +2908,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3552,7 +3552,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -4140,7 +4140,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -7790,7 +7790,7 @@
       "cover": "https://uploads-ssl.webflow.com/5ecfe69f045b6ecad6f7a410/64690ae50dcb19f92b220f3d_41fFWjKhulL.jpeg",
       "amazon": "https://www.amazon.com/Sunset-Sovereign-M-McConnell-ebook/dp/B0BXSY9D3D",
       "isKU": true,
-      "audiobook": false,
+      "audiobook": true,
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
