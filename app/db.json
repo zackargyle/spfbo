@@ -1802,7 +1802,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2768,7 +2768,7 @@
       "blog": "Fantasy Book Critic",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {

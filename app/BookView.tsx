@@ -29,7 +29,7 @@ export default function Book({link, title, cover, status}: Props) {
             ) : null}
             <img width={120} height={180} alt={title} src={cover} className="rounded h-book" />
             {status === 'cut' ? (
-                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-75 rounded"></div>
+                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-65 rounded"></div>
             ) : null}
             </a>
             <div className="text-sm">{getText(status)}</div>
