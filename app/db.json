@@ -1144,7 +1144,7 @@
       "blog": "Philip Chase",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2404,7 +2404,7 @@
       "blog": "Philip Chase",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2459,7 +2459,7 @@
       "audiobook": false,
       "blog": "Philip Chase",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
@@ -2922,7 +2922,7 @@
       "blog": "Philip Chase",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3622,7 +3622,7 @@
       "blog": "Philip Chase",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3692,7 +3692,7 @@
       "blog": "Philip Chase",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3943,7 +3943,7 @@
       "audiobook": false,
       "blog": "Philip Chase",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
