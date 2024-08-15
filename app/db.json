@@ -192,7 +192,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -220,7 +220,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1102,7 +1102,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1354,7 +1354,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1689,7 +1689,7 @@
       "audiobook": false,
       "blog": "Covers With Cassidy",
       "isFinalist": false,
-      "isSemiFinalist": false,
+      "isSemiFinalist": true,
       "isCut": false,
       "isCoverFinalist": false
     },
@@ -1830,7 +1830,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2698,7 +2698,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2852,7 +2852,7 @@
       "blog": "Covers With Cassidy",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
