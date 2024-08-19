@@ -1228,7 +1228,7 @@
       "blog": "Before We Go Blog",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1704,7 +1704,7 @@
       "blog": "The Weatherwax Report",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
