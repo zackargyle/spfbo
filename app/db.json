@@ -864,7 +864,7 @@
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -934,7 +934,7 @@
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -1424,7 +1424,7 @@
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -2712,7 +2712,7 @@
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
@@ -3398,7 +3398,7 @@
       "blog": "Fantasy-Faction",
       "isFinalist": false,
       "isSemiFinalist": false,
-      "isCut": false,
+      "isCut": true,
       "isCoverFinalist": false
     },
     {
