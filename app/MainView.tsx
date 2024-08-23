@@ -32,7 +32,7 @@ export default function Main(props: TProps) {
         highlight: ['winner', 'finalist'],
       };
     }
-  }, [props.selectedView]);
+  }, [props.selectedView, props.selectedFilter]);
 
   return (
     <div role="list" className="mt-12 overflow-auto" style={{width: '90vw', marginLeft: '10vw'}}>
