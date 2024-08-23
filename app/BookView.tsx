@@ -3,28 +3,16 @@ import { useMemo } from "react";
 import { type TBook, TFinalistsDB } from "./store.tsx";
 import finalistsDB from './finalists.json';
 
-type TStatus = 'none' | 'cut' | 'semi-finalist' | 'finalist' | 'winner';
+export type TStatus = 'none' | 'cut' | 'semi-finalist' | 'finalist' | 'winner';
 
 type Props = {
     book: TBook,
     highlight: Array<TStatus>,
 };
 
-function getText(status: string) {
-  switch (status) {
-    case 'winner':
-    return 'Winner';
-    case 'finalist':
-        return 'Finalist';
-    case 'semi-finalist':
-      return 'Semi-finalist';
-    default:
-        return '';
-  }
-}
-
 export default function Book({book, highlight}: Props) {
   const status = useMemo(() => getStatus(book), [book]);
+  const label = useMemo(() => getLabel(status), [status]);
   return (
     <div role="listitem" className="relative mr-5 text-center h-row" >
       <a href={book.amazon} target="_blank" className="inline-block relative w-book">
@@ -36,9 +24,22 @@ export default function Book({book, highlight}: Props) {
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-65 rounded"></div>
       ) : null}
       </a>
-      <div className="text-sm">{getText(status)}</div>
+      <div className="text-sm">{label}</div>
     </div>
   );
+}
+
+function getLabel(status: string) {
+  switch (status) {
+    case 'winner':
+    return 'Winner';
+    case 'finalist':
+        return 'Finalist';
+    case 'semi-finalist':
+      return 'Semi-finalist';
+    default:
+        return '';
+  }
 }
 
 function getStatus(book: TBook) {

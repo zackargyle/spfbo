@@ -24,7 +24,7 @@ export type TBook = {
     isKU: boolean,
 };
 
-type BookList = Array<TBook>;
+export type TBookList = Array<TBook>;
 
 export type TStore = {
   [batch: string]: {
