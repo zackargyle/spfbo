@@ -1,8 +1,8 @@
 'use client';
 import {useMemo} from "react";
 import {type TFilter, type TView} from './FilterView';
-import createStore, { type TStore, TBook, TBookList, TFinalistsDB } from "./store.tsx";
-import BookView, {type TStatus} from "./BookView.tsx";
+import createStore, { type TStore, TBook, TBookList } from "./store.tsx";
+import BookView from "./BookView.tsx";
 
 type TProps = {
     selectedFilter: TFilter,
@@ -12,7 +12,7 @@ type TProps = {
 type TLayout = {
   batchList: Array<string>,
   getBooks: (batch: string) => TBookList,
-  highlight: Array<TStatus>,
+  highlight: Array<TBook['status']>,
 };
 
 export default function Main(props: TProps) {
@@ -46,25 +46,6 @@ export default function Main(props: TProps) {
           </div>
         </div>
       ))}
-    </div>
-  );
-}
-
-type TBatchProps = {
-  books: TBookList,
-  title: string;
-  highlight: Array<TStatus>,
-};
-
-function Batch({books, title, highlight}: TBatchProps) {
-  return (
-    <div role="listitem" key={title}>
-      <h2 className="ml-8 mb-4 text-4xl">{title}</h2>
-      <div role="list" className="flex flex-row items-start overflow-auto">
-        {books
-          .map((book: TBook) => <BookView key={book.title} book={book} highlight={highlight} />)
-        }
-      </div>
     </div>
   );
 }
