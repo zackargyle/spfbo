@@ -1,13 +1,7 @@
 'use client';
-import { title } from 'process';
-import bookDB from './db.json';
-import finalistsDB from './finalists.json';
+import db from './db.json';
 
-export type TFinalistsDB = {
-  [batch: string]: {
-    [title: string]: number,
-  }
-}
+export type TStatus = 'none' | 'cut' | 'semi-finalist' | 'finalist' | 'winner';
 
 export type TBook = {
     batch: number,
@@ -17,11 +11,9 @@ export type TBook = {
     amazon: string,
     audiobook: boolean,
     blog: string,
-    isFinalist: boolean,
-    isSemiFinalist: boolean,
-    isCut: boolean,
-    isCoverFinalist: boolean,
     isKU: boolean,
+    status: TStatus | string,
+    rank: number,
 };
 
 export type TBookList = Array<TBook>;
@@ -49,7 +41,7 @@ function createStore(books: TBookList): TStore {
 
     batch.books.push(book);
 
-    if (book.isFinalist) {
+    if (book.status === 'winner' || book.status === 'finalist') {
       batch.finalists.push(book);
     }
 
@@ -64,21 +56,19 @@ function createStore(books: TBookList): TStore {
 
     // Sort for default view
     store[batch].books.sort((book1, book2) => {
-      if (book1.isFinalist) return -1;
-      if (book2.isFinalist) return 1;
-      if (book1.isSemiFinalist) return -1;
-      if (book2.isSemiFinalist) return 1;
-      if (book1.isCoverFinalist) return -1;
-      if (book2.isCoverFinalist) return 1;
-      if (book1.isCut) return 1;
-      if (book2.isCut) return -1;
+      if (book1.status === 'winner') return -1;
+      if (book2.status === 'winner') return 1;
+      if (book1.status === 'finalist') return -1;
+      if (book2.status === 'finalist') return 1;
+      if (book1.status === 'semi-finalist') return -1;
+      if (book2.status === 'semi-finalist') return 1;
+      if (book1.status === 'cut') return 1;
+      if (book2.status === 'cut') return -1;
       return 0;
     });
 
     store[batch].finalists.sort((book1, book2) => {
-      const book2Rank = (finalistsDB as TFinalistsDB)[batch][book2.title];
-      const book1Rank = (finalistsDB as TFinalistsDB)[batch][book1.title];
-      return book1Rank < book2Rank ? -1 : 1;
+      return book2.rank > book1.rank ? -1 : 1;
     });
   });
 
@@ -88,4 +78,4 @@ function createStore(books: TBookList): TStore {
 }
 
 
-export default () => createStore(bookDB);
+export default () => createStore(db);
