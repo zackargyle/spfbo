@@ -29,14 +29,14 @@ export type TBookList = Array<TBook>;
 export type TStore = {
   [batch: string]: {
       blogs: Array<string>,
-      books: BookList,
-      finalists: BookList,
+      books: TBookList,
+      finalists: TBookList,
   },
 };
 
 let cachedStore: TStore | null = null;
 
-function createStore(books: BookList): TStore {
+function createStore(books: TBookList): TStore {
   if (cachedStore !== null) {
     return cachedStore;
   }
