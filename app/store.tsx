@@ -12,7 +12,7 @@ export type TBook = {
     audiobook: boolean,
     blog: string,
     isKU: boolean,
-    status: TStatus | string,
+    status: TStatus,
     rank: number,
 };
 
@@ -76,4 +76,4 @@ function createStore(books: TBookList): TStore {
 }
 
 
-export default () => createStore(db);
+export default () => createStore(db as TBookList);

@@ -24,7 +24,7 @@ export default memo(function Book({book, highlight}: Props) {
   );
 });
 
-function getLabel(status: string) {
+function getLabel(status: TStatus) {
   switch (status) {
     case 'winner':
       return 'Winner';

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Filters, { type TFilter, TView } from "./FilterView.tsx";
 import Main from "./MainView.tsx"
 
