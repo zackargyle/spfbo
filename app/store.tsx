@@ -20,8 +20,9 @@ export type TBookList = Array<TBook>;
 
 export type TStore = {
   [batch: string]: {
-      blogs: Array<string>,
-      books: TBookList,
+      blogs: {
+        [blog: string]: TBookList,
+      },
       finalists: TBookList,
   },
 };
@@ -36,39 +37,40 @@ function createStore(books: TBookList): TStore {
 
   books.forEach((book: TBook) => {
     const batchKey = 'spfbo-' + book.batch;
-    store[batchKey] = store[batchKey] || { blogs: [], books: [], finalists: [] };
+    store[batchKey] = store[batchKey] || { blogs: {}, finalists: [] };
     let batch = store[batchKey];
-
-    batch.books.push(book);
 
     if (book.status === 'winner' || book.status === 'finalist') {
       batch.finalists.push(book);
     }
 
-    if (!batch.blogs.includes(book.blog)) {
-      batch.blogs.push(book.blog);
+    if (!batch.blogs[book.blog]) {
+      batch.blogs[book.blog] = [];
     }
+    batch.blogs[book.blog].push(book);
   });
 
   // sort books and blogs for consistency
-  Object.keys(store).forEach(batch => {
-    store[batch].blogs.sort();
+  Object.keys(store).forEach(batchKey => {
+    const batch = store[batchKey];
+    Object.keys(batch.blogs).forEach(blog => {
+      const bookList = batch.blogs[blog];
+      // Sort for default view
+      bookList.sort((book1, book2) => {
+        if (book1.status === 'winner') return -1;
+        if (book2.status === 'winner') return 1;
+        if (book1.status === 'finalist') return -1;
+        if (book2.status === 'finalist') return 1;
+        if (book1.status === 'semi-finalist') return -1;
+        if (book2.status === 'semi-finalist') return 1;
+        if (book1.status === 'cut') return 1;
+        if (book2.status === 'cut') return -1;
+        return 0;
+      });
 
-    // Sort for default view
-    store[batch].books.sort((book1, book2) => {
-      if (book1.status === 'winner') return -1;
-      if (book2.status === 'winner') return 1;
-      if (book1.status === 'finalist') return -1;
-      if (book2.status === 'finalist') return 1;
-      if (book1.status === 'semi-finalist') return -1;
-      if (book2.status === 'semi-finalist') return 1;
-      if (book1.status === 'cut') return 1;
-      if (book2.status === 'cut') return -1;
-      return 0;
-    });
-
-    store[batch].finalists.sort((book1, book2) => {
-      return book2.rank > book1.rank ? -1 : 1;
+      batch.finalists.sort((book1, book2) => {
+        return book2.rank > book1.rank ? -1 : 1;
+      });
     });
   });
 
