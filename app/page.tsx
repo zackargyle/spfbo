@@ -4,7 +4,7 @@ import Filters, { type TFilter, TView } from "./FilterView.tsx";
 import Main from "./MainView.tsx"
 
 export default function Home() {
-  const [selectedView, setSelectedView] = useState<TView>('spfbo-10');
+  const [selectedView, setSelectedView] = useState<TView>('SPFBO 10');
   const [selectedFilter, setSelectedFilter] = useState<TFilter>('all');
 
   return (

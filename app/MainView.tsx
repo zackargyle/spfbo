@@ -9,82 +9,39 @@ type TProps = {
     selectedView: TView,
 };
 
-type TLayout = {
-  batchList: Array<string>,
-  getBooks: (batch: string) => TBookList,
-  highlight: Array<TBook['status']>,
-};
-
 export default function Main(props: TProps) {
   const store = useMemo<TStore>(createStore, []);
+  const groupings = useMemo(() => Object.keys(store[props.selectedView]).sort(), [props.selectedView]);
 
-  if (props.selectedView === 'finalists') {
-    return (
-      <BatchList data={Object.keys(store).filter(batch => store[batch].finalists.length > 0)}>
-        {(batch: string) =>
-          <BookList
-            books={store[batch].finalists.filter(bookFilter(props.selectedFilter))}
-            highlight={['winner']}
-          />
-        }
-      </BatchList>
-    );
-  } else {
-    return (
-      <BatchList data={Object.keys(store[props.selectedView].blogs)}>
-        {(blog) =>
-          <BookList
-            books={store[props.selectedView].blogs[blog].filter(bookFilter(props.selectedFilter))}
-            highlight={['winner', 'finalist']}
-          />
-        }
-      </BatchList>
-    );
-  }
-}
-
-type TBatchListProps = {
-  data: Array<string>,
-  children: (batch: string) => JSX.Element,
-};
-
-function BatchList({data, children}: TBatchListProps) {
   return (
     <div role="list" className="mt-12 overflow-auto" style={{width: '90vw', marginLeft: '10vw'}}>
-      {data.map(batch => (
-        <div role="listitem" key={batch}>
-          <h2 className="ml-8 mb-4 text-4xl">{batch.toUpperCase()}</h2>
-          {children(batch)}
+      {groupings.map(group => (
+        <div role="listitem" key={group}>
+          <h2 className="ml-8 mb-4 text-4xl">{group}</h2>
+          <div role="list" className="flex flex-row items-start overflow-auto">
+            {store[props.selectedView][group].map((book: TBook) => bookFilter(book, props.selectedFilter) ?
+              <BookView
+                key={book.title}
+                book={book}
+                highlight={book.status === 'winner' || (book.status === 'finalist' && props.selectedView !== 'finalists')}
+              />
+            : null)}
+          </div>
         </div>
       ))}
     </div>
   );
 }
 
-type TBookListProps = {
-  books: TBookList,
-  highlight: Array<TBook['status']>,
-};
-
-function BookList({books, highlight}: TBookListProps) {
-  return (
-    <div role="list" className="flex flex-row items-start overflow-auto">
-      {books.map((book: TBook) => <BookView key={book.title} book={book} highlight={highlight} />)}
-    </div>
-  );
-}
-
-function bookFilter( filter: TFilter) {
-  return (book: TBook) =>  {
-    switch (filter) {
-      case 'all':
-        return true;
-      case 'ku':
-        return book.isKU;
-      case 'audio':
-        return book.audiobook;
-      default:
-        return true;
-    }
-  };
+function bookFilter(book: TBook, filter: TFilter) {
+  switch (filter) {
+    case 'all':
+      return true;
+    case 'ku':
+      return book.isKU;
+    case 'audio':
+      return book.audiobook;
+    default:
+      return true;
+  }
 }
