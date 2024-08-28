@@ -399,7 +399,7 @@
     "audiobook": false,
     "blog": "Queen's Book Asylum",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "semi-finalist",
     "rank": 300
   },
   {
@@ -776,7 +776,7 @@
     "audiobook": false,
     "blog": "Queen's Book Asylum",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
@@ -932,7 +932,7 @@
     "audiobook": false,
     "blog": "Queen's Book Asylum",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
