@@ -139,7 +139,7 @@
     "audiobook": false,
     "blog": "Covers With Cassidy",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "semi-finalist",
     "rank": 300
   },
   {
@@ -1036,7 +1036,7 @@
     "audiobook": false,
     "blog": "Covers With Cassidy",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
@@ -1777,7 +1777,7 @@
     "audiobook": false,
     "blog": "Covers With Cassidy",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
@@ -2258,7 +2258,7 @@
     "audiobook": false,
     "blog": "Philip Chase",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "semi-finalist",
     "rank": 300
   },
   {
