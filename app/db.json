@@ -1530,7 +1530,7 @@
     "audiobook": false,
     "blog": "The Weatherwax Report",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
@@ -2960,7 +2960,7 @@
     "audiobook": false,
     "blog": "The Weatherwax Report",
     "isCoverFinalist": false,
-    "status": "none",
+    "status": "cut",
     "rank": 300
   },
   {
@@ -3129,7 +3129,7 @@
     "audiobook": false,
     "blog": "Covers With Cassidy",
     "isCoverFinalist": false,
-    "status": "semi-finalist",
+    "status": "finalist",
     "rank": 300
   },
   {
